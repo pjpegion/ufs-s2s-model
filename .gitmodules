@@ -8,8 +8,8 @@
 	branch = develop
 [submodule "CICE_SRC"]
 	path = CICE_SRC
-	url = https://github.com/NOAA-EMC/CICE5.git
-	branch = develop
+	url = https://github.com/pjpegion/CICE5.git
+	branch = ufs_1deg
 [submodule "FMS"]
 	path = FMS
 	url = https://github.com/NOAA-GFDL/FMS
