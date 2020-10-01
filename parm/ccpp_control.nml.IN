@@ -12,6 +12,8 @@
        chksum_debug = .false.
        dycore_only = .false.
        fdiag = @[FDIAG]
+       fhmax = @[FHMAX]
+       fhmaxhf = @[NFHMAX_HF]
        ccpp_suite = '@[CCPP_SUITE]'
 /
 
@@ -184,26 +186,37 @@
        nstf_name      = @[NSTF_NAME]
        cplflx         = @[CPLFLX]
        cplwav         = @[CPLWAV]
+       cplwav2atm     = @[CPLWAV2ATM]
        iau_delthrs    = 6
        iaufhrs        = 30
        iau_inc_files  = @[IAU_INC_FILES]
+       iau_drymassfixer = @[IAU_DRYMASSFIXER]
        do_sppt        = @[DO_SPPT]
        do_shum        = @[DO_SHUM]
        do_skeb        = @[DO_SKEB]
-       do_sfcperts    = @[DO_SFCPERTS]
+       lndp_type      = @[LNDP_TYPE]
+       n_var_lndp     = @[N_VAR_LNDP]
+       do_ca          = .false.
+       ca_sgs         = .false.
        nca            = 1
        ncells         = 5
-       nfracseed      = 0.5
        nlives         = 30
-       nthresh        = 0.5
-       nseed          = 100000
-       do_ca          = .false.
+       nseed          = 1000000
+       nfracseed      = 0.5
+       nthresh        = 0.
+       ca_trigger     = .true.	
+       ca_entr	      = .false.
+       ca_closure     = .false.
        ca_global      = .false.
-       ca_sgs         = .true.
+       nca_g          = 1
+       ncells_g       = 1
+       nlives_g       = 100
+       nseed_g        = 100
        ca_smooth      = .false.
-       nspinup        = 1000
-       iseed_ca       = 0
-       isppt_deep     = .false.
+       nspinup        = 100
+       iseed_ca       = 1
+       nsmooth        = 1
+       ca_amplitude   = 0.5
 /
 
 &interpolator_nml
@@ -274,17 +287,10 @@
   ISEED_SPPT=3,
 /
 &nam_sfcperts
-  NSFCPERT=6,
-  PERTZ0=-999.,
-  PERTSHC=-999.,
-  PERTZT=-999.,
-  PERTLAI=-999.,
-  PERTVEGF=-999.,
-  PERTALB=-999.,
-  SFC_TAU=21600,
-  SFC_LSCALE=500000,
-  ISEED_SFC=0,
-  SPPT_LAND=.FALSE.,
+  lndp_type      = @[LNDP_TYPE]
+  LNDP_TAU=21600,
+  LNDP_LSCALE=500000,
+  ISEED_LNDP=2010,
 /
 
 &cires_ugwp_nml
